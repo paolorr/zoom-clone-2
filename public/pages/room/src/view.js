@@ -11,7 +11,7 @@ class View {
     if (src) {
       video.controls = true
       video.loop = true
-      Util.sleep(200).then(_ => video.play());
+      Util.sleep(200).then(_ => video.play())
     }
     if (srcObject) {
       video.addEventListener('loadedmetadata', _ => video.play())
@@ -40,5 +40,11 @@ class View {
 
     const videoGrid = document.getElementById('video-grid')
     videoGrid.append(div)
+  }
+
+  setParticipants(count) {
+    const myself = 1
+    const participants = document.getElementById('participants')
+    participants.innerHTML = count + myself
   }
 }
