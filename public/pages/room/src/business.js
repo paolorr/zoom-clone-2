@@ -3,11 +3,11 @@ class Business {
     this.room = room
     this.media = media
     this.view = view
-    this.socketBuilder = socketBuilder
+    this.socket = socketBuilder
       .setOnUserConnected(this.onUserConnected())
       .setOnUserDisconnected(this.onUserDisconnected())
       .build()
-    this.socketBuilder.emit('join-room', this.room, 'test01')
+    this.socket.emit('join-room', this.room, 'test01')
     this.currentStream = {}
   }
 
