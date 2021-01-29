@@ -34,8 +34,25 @@ class PeerBuilder {
     this.onCallReceived(call)
   }
 
+  _preparePeerInstanceFunction(peerModule) {
+    class PeerCustomModule extends peerModule { }
+
+    const peerCall = PeerCustomModule.prototype.call
+    const context = this
+    PeerCustomModule.prototype.call = function (id, stream) {
+      const call = peerCall.apply(this, [id, stream])
+      //adiciona os eventos da chamada para quem liga tambem
+      context._prepareCallEvent(call)
+      return call
+    }
+
+    return PeerCustomModule
+  }
+
   build() {
-    const peer = new Peer(...this.peerConfig)
+    // const peer = new Peer(...this.peerConfig)
+    const PeerCustomInstance = this._preparePeerInstanceFunction(Peer)
+    const peer = new PeerCustomInstance(...this.peerConfig)
 
     peer.on('error', this.onError)
     peer.on('call', this._prepareCallEvent.bind(this))
