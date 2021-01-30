@@ -12,3 +12,7 @@ Desenvolvido na  [Semana JS Expert 2](https://javascriptexpert.com.br/lc_jan21_a
 - Node Turn: https://github.com/Atlantis-Software/node-turn
 - O tipo Map: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 - Making a Simple P2P Web Game: https://www.toptal.com/webrtc/taming-webrtc-with-peerjs
+
+## Links Aula 3
+- WebRTC Recording PeerConnection Examples: https://webrtc.github.io/samples/src/content/peerconnection/multiple/
+- WebRTC & Media Recorder: https://webrtc.github.io/samples/src/content/getusermedia/record/
