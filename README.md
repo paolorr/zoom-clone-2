@@ -16,3 +16,6 @@ Desenvolvido na  [Semana JS Expert 2](https://javascriptexpert.com.br/lc_jan21_a
 ## Links Aula 3
 - WebRTC Recording PeerConnection Examples: https://webrtc.github.io/samples/src/content/peerconnection/multiple/
 - WebRTC & Media Recorder: https://webrtc.github.io/samples/src/content/getusermedia/record/
+
+## Links Aula 4
+- Issue de stream duplicado do PeerJS: https://github.com/peers/peerjs/issues/609

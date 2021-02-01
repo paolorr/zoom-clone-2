@@ -47,7 +47,7 @@ class Business {
       recorderInstance.startRecording()
     }
 
-    const isCurrentId = false
+    const isCurrentId = userId === this.currentPeer.id
     this.view.renderVideo({
       userId,
       // muted: false,
@@ -104,6 +104,12 @@ class Business {
   onPeerStreamReceived = function () {
     return (call, stream) => {
       const callerId = call.peer
+      // o PeerJS tem um bug que ao ligar com audio e video ativados gera duas chamadas com o mesmo id, por isso deste if
+      // https://github.com/peers/peerjs/issues/609
+      if (this.peers.has(callerId)) {
+        console.log('calling twice, ignoring second call', callerId)
+        return
+      }
       this.addVideoStream(callerId, stream)
       this.peers.set(callerId, { call })
       this.view.setParticipants(this.peers.size)
